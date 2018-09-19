@@ -1,3 +1,4 @@
+#include "..\Lab00\Header.h"
 #include "stack.h"
 #include <iostream>
 
@@ -11,6 +12,7 @@ void Stack::Pop()
 	data[count] = -1;
 	count--;
 }
+
 
 bool Stack::Push(int item)
 {

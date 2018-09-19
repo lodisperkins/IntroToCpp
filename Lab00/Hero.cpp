@@ -1,0 +1,4 @@
+void Hero::Fight(Hero &)
+{
+
+}
