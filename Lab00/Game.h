@@ -3,5 +3,5 @@
 class Game
 {
 public:
-	Hero Battle(Hero&hero, Hero&hero2);
+	Hero Battle(Hero&fighter, Hero&fighter2);
 };

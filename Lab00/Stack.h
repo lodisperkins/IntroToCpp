@@ -3,9 +3,8 @@
 class Stack
 {
 private:
-	Hero data[20];
+	Hero mData[20];
 	int mCount;
-	Hero null;
 public:
 	Hero Top();
 	bool Pop();

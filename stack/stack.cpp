@@ -1,15 +1,15 @@
-#include "..\Lab00\Header.h"
+
 #include "stack.h"
 #include <iostream>
 
 int Stack::Top()
 {
-	return data[count];
+	return mData[count];
 }
 
 void Stack::Pop()
 {
-	data[count] = -1;
+	mData[count] = -1;
 	count--;
 }
 
@@ -19,32 +19,32 @@ bool Stack::Push(int item)
 	int sum;
 	if (item == '+')
 	{
-		data[count] = item;
+		mData[count] = item;
 		Pop();
-		int j = data[count];
+		int j = mData[count];
 		Pop();
-		int i = data[count];
+		int i = mData[count];
 		Pop();
 		count++;
 		sum = i + j;
-		data[count] = sum;
-		std::cout << data[count] << std::endl;
+		mData[count] = sum;
+		std::cout << mData[count] << std::endl;
 	}
 	else if (item == '-')
 	{
 		Pop();
-		int j = data[count];
+		int j = mData[count];
 		Pop();
-		int i = data[count];
+		int i = mData[count];
 		Pop();
 		count++;
 		sum = i-j;
-		data[count] = sum;
-		std::cout << data[count] << std::endl;
+		mData[count] = sum;
+		std::cout << mData[count] << std::endl;
 	}
 	if (count != 20 && item == 0,1,2,3,4,5,6,7,8,9)
 	{
-		data[count] = item;
+		mData[count] = item;
 		count++;
 	}
 	else

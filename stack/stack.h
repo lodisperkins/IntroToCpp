@@ -3,7 +3,7 @@ class Stack
 {
 private:
 	int count=0;
-	int data[20];
+	int *mData;
 	int capacity;
 
 public:

@@ -10,8 +10,13 @@ public:
 	void Fight(Hero&);
 	Hero()
 	{
-		mHealth = 100;
-		mPower = rand() % 30 + 10;
 	}
+	Hero(int min, int max)
+	{
+		mHealth = 100;
+		mPower = rand() % max + min;
+	}
+	bool isAlive();
+	int takeDamage(mPower);
 };
 
