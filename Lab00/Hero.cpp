@@ -1,22 +1,20 @@
 #include "Hero.h"
 void Hero::Fight(Hero&fighter)
 {
-	fighter.takeDamage(mPower);
+	fighter.TakeDamage(mPower);
+}
+
+int Hero::report()
+{
+	return mHealth;
 }
 
 bool Hero::isAlive()
 {
-	if (mHealth > 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}	
+	return mHealth > 0;	
 }
 
-void Hero::takeDamage(int attack)
+void Hero::TakeDamage(int attack)
 {
 	mHealth = mHealth - attack;
 }

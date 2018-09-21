@@ -20,7 +20,8 @@ public:
 		mHealth = 100;
 		mPower = rand() % min + max;
 	}
+	int report();
 	bool isAlive();
-	void takeDamage(int attack);
+	void TakeDamage(int attack);
 };
 
