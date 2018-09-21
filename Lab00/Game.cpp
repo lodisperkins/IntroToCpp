@@ -2,11 +2,9 @@
 
 Hero Game::Battle(Hero & hero, Hero & hero2)
 {
-	bool life = hero.isAlive();
-	bool life2 = hero2.isAlive();
-	while (life == true || life2 == true)
+	bool canFight;
+	while (canFight)
 	{
-		bool life = hero.isAlive();
 		
 		if(life == false)
 		{
