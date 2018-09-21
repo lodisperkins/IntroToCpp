@@ -6,8 +6,10 @@
 int main()
 {
 	srand(time(NULL));
-	Hero ironMan(1, 20, "Ironman");
-	Hero capMerica(1,26, "Captain America");
+
+
+	Hero ironMan( "Ironman");
+	Hero capMerica("Captain America");
 	Hero *ptr;
 
 	Stack Team1;
@@ -20,6 +22,6 @@ int main()
 
 	Game civilWar;
 	Hero winner = civilWar.Battle(ironMan, capMerica);
-	system("pause");
+	
 
 }

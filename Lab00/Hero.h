@@ -14,11 +14,11 @@ public:
 	{
 	
 	}
-	Hero(int min, int max, std::string thing)
+	Hero(std::string thing)
 	{
 		name = thing;
 		mHealth = 100;
-		mPower = rand() % min + max;
+		mPower = rand() % (50 - 15 +1) + 15;
 	}
 	int report();
 	bool isAlive();

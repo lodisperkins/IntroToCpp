@@ -1,38 +1,57 @@
 #include "Game.h"
 
-Hero Game::Battle(Hero & hero, Hero & hero2)
+Hero Game::Battle(Hero & hero1, Hero & hero2)
 {
-	bool canFight;
+	Hero winner;
+	bool canFight = true;
 	while (canFight)
 	{
-		
-		if(life == false)
-		{
-			break;
-		}
-		else 
-		{
-			hero.Fight(hero2);
-		}
-		bool life2 = hero2.isAlive();
-		if (life2 == false)
+		hero1.Fight(hero2);
+		std::cout << "Capatain America's health is " << hero1.report() << std::endl;
+		system("pause");
+		hero2.Fight(hero1);
+		std::cout << "Iron Man's health is " << hero2.report() << std::endl;
+		system("pause");
+		if (hero1.isAlive() == false || hero2.isAlive() == false)
 		{
 			break;
 		}
 		else
 		{
-			hero2.Fight(hero);
+			continue;
 		}
 	}
 	
-	if (life == true)
+	if (hero1.isAlive() && (!hero2.isAlive()))
 	{
 		std::cout << "Iron Man wins!!\n";
-		return hero;
+		system("pause");
 	}
-	else if (life2== true)
+	else if (((hero2.isAlive())) && (!(hero1.isAlive())))
 	{
 		std::cout << "Captain America wins!!\n";
-		return hero2;
+		system("pause");
 	}
+	else if ((!(hero1.isAlive())) && (!(hero2.isAlive())))
+	{
+		std::cout << "thanos wins\n";
+		system("pause");
+	}
+	return winner;
 }
+////while (canFight)
+//{
+//	hero1.Fight(hero2);
+//	std::cout << hero1.
+//		hero2.Fight(hero1);
+//	if (hero1.isAlive == false || hero2.isAlive == false)
+//	{
+//		break;
+//	}
+//	else
+//	{
+//		continue;
+//	}
+//}
+//winner = hero1.isAlive() ? hero1 : hero2;
+//return winner;
