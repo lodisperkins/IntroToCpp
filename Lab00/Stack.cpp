@@ -6,20 +6,34 @@ Hero Stack::Top()
 }
 bool Stack::Pop()
 {
-	Hero *temp = new Hero[20];
-	for (int i = 0; i < mCount - 1; i++)
+	if (mCount > 0)
 	{
-		temp[i] = mData[i];
+		Hero *temp = new Hero[20];
+		for (int i = 0; i < mCount - 1; i++)
+		{
+			temp[i] = mData[i];
+		}
+		for (int i = 0; i < 20; i++)
+		{
+			mData[i] = temp[i];
+		}
+		delete[] temp;
+		mCount--;
 	}
-	for (int i = 0; i < 20; i++)
+	else 
 	{
-		mData[i] = temp[i];
+		return false;
 	}
-	delete[] temp;
-	mCount--;
 }
 bool Stack::Push(Hero*hero)
 {
-	mData[mCount] = *hero;
-	mCount++;
+	if (mCount != 20)
+	{
+		mData[mCount] = *hero;
+		mCount++;
+	}
+	else
+	{
+		return false;
+	}
 }

@@ -1,7 +1,7 @@
 #include "Hero.h"
 void Hero::Fight(Hero&fighter)
 {
-	fighter.takeDamage();
+	fighter.takeDamage(mPower);
 }
 
 bool Hero::isAlive()
@@ -16,7 +16,8 @@ bool Hero::isAlive()
 	}	
 }
 
-int Hero::takeDamage(int mpower)
+void Hero::takeDamage(int attack)
 {
-	
+	mHealth = mHealth - attack;
 }
+

@@ -6,7 +6,20 @@
 int main()
 {
 	srand(time(NULL));
-	int *ptr;
-	int array[5] = { 1,2,3,4,54 };
-	*ptr = array[5];
+	Hero ironMan(1, 20, "Ironman");
+	Hero capMerica(1,26, "Captain America");
+	Hero *ptr;
+
+	Stack Team1;
+	ptr = &ironMan;
+	Team1.Push(ptr);
+
+	Stack Team2;
+	ptr = &capMerica;
+	Team2.Push(ptr);
+
+	Game civilWar;
+	Hero winner = civilWar.Battle(ironMan, capMerica);
+	system("pause");
+
 }
