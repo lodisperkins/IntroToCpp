@@ -23,5 +23,11 @@ public:
 	int report();
 	bool isAlive();
 	void TakeDamage(int attack);
+	Hero operator = (Hero& other)
+	{
+		Hero Null;
+		Null.name = other.name;
+		return Null;
+	}
 };
 

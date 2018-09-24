@@ -19,3 +19,4 @@ void Hero::TakeDamage(int attack)
 	mHealth = mHealth - attack;
 }
 
+
