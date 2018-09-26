@@ -1,14 +1,23 @@
 #include "Hero.h"
 #include <time.h>
+#include <string>
 void Hero::Fight(Hero&fighter)
 {
 	changePower();
 	fighter.TakeDamage(mPower);
 }
 
-int Hero::report()
+Hero::Hero(std::string thing)
 {
-	return mHealth;
+	name = thing;
+	mHealth = 100;
+	mPower = rand() % (50 - 15) + 15;
+	mDefense = rand() % (30 - 5 + 1) + 5;
+}
+
+std::string Hero::report()
+{
+	return name;
 }
 
 void Hero::changePower()
@@ -29,7 +38,7 @@ void Hero::TakeDamage(int attack)
 int Hero::choice()
 {
 	int choice;
-	choice = (6 - 0 + 1) + 0;
+	choice = (5 - 0 + 1) + 0;
 	return choice;
 }
 

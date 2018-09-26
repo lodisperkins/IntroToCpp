@@ -15,27 +15,15 @@ public:
 	{
 	
 	}
-	Hero(std::string thing)
-	{
-		name = thing;
-		mHealth = 100;
-		mPower = rand() % (50 - 15) +15 ;
-		mDefense = rand() % (30 - 5 + 1) + 5;
-	}
-	int report();
+	Hero(std::string thing);
+	
+	std::string report();
 	void changePower();
 
 	bool isAlive();
 
 	void TakeDamage(int attack);
-
-	Hero operator = (Hero& other)
-	{
-		Hero Null;
-		Null.name = other.name;
-		return Null;
-	}
-
+	
 	bool operator == (const Hero& other)
 	{
 		return mHealth == other.mHealth && mPower == other.mPower && name == other.name;

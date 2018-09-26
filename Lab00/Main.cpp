@@ -49,9 +49,8 @@ int main()
 	ptr = &scarletWitch;
 	Team2.Push(ptr);
 	ptr = &antMan;
-
 	Game civilWar;
-	Hero winner = civilWar.Battle(ironMan, capMerica);
+	Stack winner = civilWar.Battle(Team1, Team2);
 	
 
 }
