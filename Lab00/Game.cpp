@@ -9,24 +9,30 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 	Hero hero2;
 	Hero Dead("dead");
 	Hero tmp;
+	Hero *ptr;
 	Stack temp = Stack();
 	bool canFight =true;
 	int j;
 	int h;
-
-	for (int i = 0; i < 6; i++)
+	//this loop allow both teams to fight until all heroes in one of the teams have fallen
+	while (canFight)
 	{
+		//team1's turn
 		h = 0;
-
-		for (j = 5; j != hero1.choice(); j--)
+		//a hero from team1 randomly selects a hero from team2 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
+		//the heroes it doesn't want to fight are placed in a temporary array
+		for (j = 5; j >= hero1.choice(); j--)
 		{
-			temp.Push(&team2.Top());
+			tmp = team2.Top();
+			ptr = &tmp;
+			temp.Push(ptr);
 			team2.Pop();
 			h++;
 		}
-		
 		hero1 = team1.Top();
 		hero2 = team2.Top();
+
+		//the two heroes then continuosly fight until at least one have died
 		while (canFight)
 		{
 			hero1.Fight(hero2);
@@ -48,6 +54,8 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 				continue;
 			}
 		}
+
+		//this set of if statements checks who has won the fight and pops them off of the stack accordingly
 		if (hero1.isAlive() && (!hero2.isAlive()))
 		{
 			hero2 = Dead;
@@ -74,15 +82,18 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			std::cout << "Both heroes have fallen this round" << std::endl;
 			system("pause");
 		}
+
+		//the remaining fighters of team2 are then pushed back on to their stack
 		for (h; h >= 0; h--)
 		{
 			team2.Push(&temp.Top());
 			temp.Pop();
 		}
 
-
+		//team2's turn
 		h = 0;
-
+		//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
+		//the heroes it doesn't want to fight are placed in a temporary array
 		for (j = 5; j != hero2.choice(); j--)
 		{
 			temp.Push(&team1.Top());
@@ -92,6 +103,9 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 
 		hero1 = team2.Top();
 		hero2 = team1.Top();
+
+		//the two heroes then continuosly fight until at least one have died
+
 		while (canFight)
 		{
 			hero1.Fight(hero2);
@@ -113,6 +127,9 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 				continue;
 			}
 		}
+
+		//this set of if statements check who has won the fight and pops them off of the stack accordingly
+
 		if (hero1.isAlive() && (!hero2.isAlive()))
 		{
 			hero2 = Dead;
@@ -139,12 +156,26 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			std::cout << "Both heroes have fallen this round" << std::endl;
 			system("pause");
 		}
+
+		//the remaining fighters of team2 are then pushed back on to their stack
 		for (h; h >= 0; h--)
 		{
-			team2.Push(&temp.Top());
+			team1.Push(&temp.Top());
 			temp.Pop();
 		}
 
+		//this checks if either team still has heroes alive if a team doesn't have any heroes alive it makes the opposing team the winner 
+		//and sets canFight to false and thus breaking the loop
+		if (team1.report() == 0)
+		{
+			canFight = false;
+			winner = team2;
+		}
+		else if (team2.report() == 0)
+		{
+			canFight = false;
+			winner = team1;
+		}
 	}
 	
 

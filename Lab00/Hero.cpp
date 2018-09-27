@@ -38,7 +38,7 @@ void Hero::TakeDamage(int attack)
 int Hero::choice()
 {
 	int choice;
-	choice = (5 - 0 + 1) + 0;
+	choice = rand() % (5 - 0 + 1) + 0;
 	return choice;
 }
 

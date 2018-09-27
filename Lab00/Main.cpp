@@ -5,6 +5,11 @@
 #include "Stack.h"
 int main()
 {
+	//defense equation needs to be fixeed
+	//top function needs to be checked
+	//player input wanted but not needed
+	//screen is cluttered
+	//unknwon error occurs during second fight
 	srand(time(NULL));
 
 	//team 1
@@ -24,7 +29,7 @@ int main()
 
 	Hero *ptr;
 	
-	Stack Team1;
+	Stack Team1("Team Iron Man");
 	ptr = &ironMan;
 	Team1.Push(ptr);
 	ptr = &warMachine;
@@ -37,7 +42,7 @@ int main()
 	Team1.Push(ptr);
 	ptr = &spiderMan;
 
-	Stack Team2;
+	Stack Team2("Team Captain America");
 	ptr = &capMerica;
 	Team2.Push(ptr);
 	ptr = &hawkeye;
@@ -52,5 +57,6 @@ int main()
 	Game civilWar;
 	Stack winner = civilWar.Battle(Team1, Team2);
 	
+	std::cout << winner <<std::endl;
 
 }

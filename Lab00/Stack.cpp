@@ -1,5 +1,10 @@
 #include "Stack.h"
 #include "Hero.h"
+Stack::Stack(std::string thing)
+{
+	mCount = 0;
+	name = thing;
+}
 Hero Stack::arr(int index)
 {
 	return mData[index];
@@ -7,7 +12,7 @@ Hero Stack::arr(int index)
 
 Hero Stack::Top()
 {
-	return mData[mCount];
+	return mData[mCount  - 1];
 }
 bool Stack::Pop()
 {
@@ -41,4 +46,15 @@ bool Stack::Push(Hero*hero)
 	{
 		return false;
 	}
+}
+
+int Stack::report()
+{
+	return mCount;
+}
+
+std::ostream & operator<<(std::ostream& os, Stack stack)
+{
+	os << stack.name <<std::endl;
+	return os;
 }
