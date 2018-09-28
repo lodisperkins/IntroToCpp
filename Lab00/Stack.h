@@ -1,17 +1,16 @@
 #pragma once
-#include "Hero.h"
+
 #include <string>
+
+class Hero;
 class Stack
 {
 private:
-	Hero mData[6];
+	Hero* mData;
 	int mCount;
 	std::string name;
 public:
-	Stack()
-	{
-		 mCount = 0;
-	}
+	Stack();
 	Stack(std::string thing);
 	Hero arr(int index);
 	Hero Top();

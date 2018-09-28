@@ -1,6 +1,5 @@
 #pragma once
-#include "Hero.h"
-#include "Stack.h"
+class Stack;
 class Game
 {
 public:

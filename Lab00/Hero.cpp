@@ -36,10 +36,11 @@ void Hero::TakeDamage(int attack)
 	mHealth = mHealth + (mDefense - attack);
 }
 
-int  Hero::choice()
+int Hero::choice(Stack team)
 {
+	int max=team.report();
 	int choice;
-	choice = rand() % ( 5- 0 + 1) + 0;
+	choice = rand() % ( max- 1 + 1) + 1;
 	return choice;
 }
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <time.h>
 #include <string>
+#include "Stack.h"
 class Hero
 {
 private:
@@ -36,6 +37,6 @@ public:
 		return os;
 	}
 
-	int choice();
+	int choice(Stack team);
 };
 

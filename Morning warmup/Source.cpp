@@ -1,15 +1,22 @@
 #include <iostream>
-int sum(int num)
+//Create a function with return type of type integer. The function will take in two arguments.
+//The first argument is a pointer to an array and the second is the size of the array
+//The function will return the sum of the two largest values in the array
+int arr(int*ptr, int size)
 {
-	int sum = 0;
-	for (int j = 0; j <= num; j++)
+	int a;
+	int b;
+	for (int i = 0; i < size; ptr++)
 	{
-		sum = sum + j;
+		a= *ptr;
+		ptr++;
+		b = *ptr;
+	
+		while (a > b && i!=size)
+		{
+			ptr++;
+			b = *ptr;
+		}
+
 	}
-	return sum;
-}
-int main()
-{
-	int num2 = 10;
-	int num3 = sum(num2);
 }

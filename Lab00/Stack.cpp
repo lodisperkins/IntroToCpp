@@ -3,7 +3,14 @@
 Stack::Stack(std::string thing)
 {
 	mCount = 0;
+	mData = new Hero[6];
 	name = thing;
+}
+Stack::Stack()
+{
+	mData = new Hero[6];
+	mCount = 0;
+	name = "default";
 }
 Hero Stack::arr(int index)
 {
@@ -34,7 +41,9 @@ bool Stack::Pop()
 	{
 		return false;
 	}
+	return true;
 }
+
 bool Stack::Push(Hero*hero)
 {
 	if (mCount != 6)
@@ -46,6 +55,7 @@ bool Stack::Push(Hero*hero)
 	{
 		return false;
 	}
+	return true;
 }
 
 
