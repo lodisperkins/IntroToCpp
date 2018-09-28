@@ -1,4 +1,5 @@
 #include "Hero.h"
+#include "Stack.h"
 #include <time.h>
 #include <string>
 void Hero::Fight(Hero&fighter)
@@ -32,13 +33,13 @@ bool Hero::isAlive()
 
 void Hero::TakeDamage(int attack)
 {
-	mHealth = (mHealth + mDefense) - attack;
+	mHealth = mHealth + (mDefense - attack);
 }
 
-int Hero::choice()
+int  Hero::choice()
 {
 	int choice;
-	choice = rand() % (5 - 0 + 1) + 0;
+	choice = rand() % ( 5- 0 + 1) + 0;
 	return choice;
 }
 

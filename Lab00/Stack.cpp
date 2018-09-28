@@ -48,6 +48,8 @@ bool Stack::Push(Hero*hero)
 	}
 }
 
+
+
 int Stack::report()
 {
 	return mCount;

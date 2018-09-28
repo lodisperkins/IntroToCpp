@@ -6,10 +6,11 @@
 int main()
 {
 	//defense equation needs to be fixeed
+	//unknwon error occurs during second fight
 	//top function needs to be checked
 	//player input wanted but not needed
 	//screen is cluttered
-	//unknwon error occurs during second fight
+	
 	srand(time(NULL));
 
 	//team 1
