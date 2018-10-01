@@ -38,9 +38,9 @@ void Hero::TakeDamage(int attack)
 
 int Hero::choice(Stack team)
 {
-	
+	int max=team.report();
 	int choice;
-	choice = team.report();
+	choice = rand() % max + 1;
 	return choice;
 }
 

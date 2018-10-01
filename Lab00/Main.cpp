@@ -56,6 +56,7 @@ int main()
 	ptr = &scarletWitch;
 	Team2.Push(ptr);
 	ptr = &antMan;
+	Team2.Push(ptr);
 	/*Team2.Push(ptr);*/
 
 	Game civilWar;

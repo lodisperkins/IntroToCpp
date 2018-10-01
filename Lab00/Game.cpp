@@ -37,20 +37,20 @@ bool Game::Battle(Stack & team1, Stack & team2)
 	hero1 = team1.Top();
 	hero2 = team2.Top();
 
-	/*h = 0;*/
+	h = 0;
 	//a hero from team1 randomly selects a hero from team2 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
 	//the heroes it doesn't want to fight are placed in a temporary array
-	/*ranHero = hero1.choice(team2);*/
-	//for (j = team2.report(); j > ranHero; j--)
-	//{
-	//	hero2 = team2.Top();
-	//	Hero *ptr = &hero2;
-	//	temp.Push(ptr);
-	//	team2.Pop();
-	//	h++;		
-	//}
+	ranHero = hero1.choice(team2);
+	for (j = team2.report(); j > ranHero; j--)
+	{
+		hero2 = team2.Top();
+		Hero *ptr = &hero2;
+		temp.Push(ptr);
+		team2.Pop();
+		h++;		
+	}
 
-	/*hero2 = team2.Top();*/
+	hero2 = team2.Top();
 
 
 	//	//the two heroes then continuosly fight until at least one have died
@@ -109,17 +109,17 @@ bool Game::Battle(Stack & team1, Stack & team2)
 	}
 
 	//	//the remaining fighters of team2 are then pushed back on to their stack
-	/*for (h; h >= 1; h--)
+	for (h; h >= 1; h--)
 	{
 		tmp = temp.Top();
 		Hero *ptr = &tmp;
 		team2.Push(ptr);
 		temp.Pop();
 
-	}*/
+	}
 
 	//	//team2's turn
-	/*h = 0;*/
+	h = 0;
 	//	//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
 	//	//the heroes it doesn't want to fight are placed in a temporary array
 	if (team1.report() == 0)
@@ -141,7 +141,7 @@ bool Game::Battle(Stack & team1, Stack & team2)
 		hero2 = team2.Top();
 	}
 	
-	/*ranHero = hero2.choice(team1);
+	ranHero = hero2.choice(team1);
 	for (j = team1.report(); j > ranHero; j--)
 	{
 		hero1 = team1.Top();
@@ -150,7 +150,7 @@ bool Game::Battle(Stack & team1, Stack & team2)
 		team1.Pop();
 		h++;
 	
-	}*/
+	}
 
 	if (team1.report() == 0)
 	{
@@ -229,14 +229,14 @@ bool Game::Battle(Stack & team1, Stack & team2)
 	}
 
 	//the remaining fighters of team1 are then pushed back on to their stack
-	/*for (h; h >= 1; h--)
+	for (h; h >= 1; h--)
 	{
 		tmp = temp.Top();
 		Hero *ptr = &tmp;
 		team1.Push(ptr);
 		temp.Pop();
 		
-	}*/
+	}
 
 	//this checks if either team still has heroes alive if a team doesn't have any heroes alive it makes the opposing team the winner 
 	//and sets canFight to false thus breaking the loop
