@@ -12,8 +12,8 @@ Hero::Hero(std::string thing)
 {
 	name = thing;
 	mHealth = 100;
-	mPower = rand() % (50 - 15) + 15;
-	mDefense = rand() % (30 - 5 + 1) + 5;
+	mPower = rand() % 50  + 15;
+	mDefense = rand() % 30 +5;
 }
 
 std::string Hero::report()
@@ -23,7 +23,7 @@ std::string Hero::report()
 
 void Hero::changePower()
 {
-	mPower = rand() % (50 - 15) + 15;
+	mPower = rand() % 50 + 15;
 }
 
 bool Hero::isAlive()
@@ -38,9 +38,9 @@ void Hero::TakeDamage(int attack)
 
 int Hero::choice(Stack team)
 {
-	int max=team.report();
+	
 	int choice;
-	choice = rand() % ( max- 1 + 1) + 1;
+	choice = team.report();
 	return choice;
 }
 

@@ -2,9 +2,8 @@
 #include "Hero.h"
 Stack::Stack(std::string thing)
 {
-	mCount = 0;
 	mData = new Hero[6];
-	name = "default";
+	mCount = 0;
 	name = thing;
 }
 Stack::Stack()
@@ -20,17 +19,20 @@ Hero Stack::arr(int index)
 
 Hero Stack::Top()
 {
-	return mData[mCount  - 1];
+	if(mCount > 0)
+		return mData[mCount-1];
 }
 bool Stack::Pop()
 {
 	if (mCount > 0)
 	{
-		Hero *temp = new Hero[6];
+		Hero *temp = new Hero[6];		
 		for (int i = 0; i < mCount - 1; i++)
 		{
 			temp[i] = mData[i];
 		}
+		delete[] mData;
+		mData = new Hero[6];
 		for (int i = 0; i < 6; i++)
 		{
 			mData[i] = temp[i];
@@ -47,7 +49,7 @@ bool Stack::Pop()
 
 bool Stack::Push(Hero*hero)
 {
-	if (mCount != 6)
+	if (mCount < 6)
 	{
 		mData[mCount] = *hero;
 		mCount++;

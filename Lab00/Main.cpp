@@ -42,6 +42,7 @@ int main()
 	ptr = &vision;
 	Team1.Push(ptr);
 	ptr = &spiderMan;
+	Team1.Push(ptr);
 
 	Stack Team2("Team Captain America");
 	ptr = &capMerica;
@@ -55,9 +56,16 @@ int main()
 	ptr = &scarletWitch;
 	Team2.Push(ptr);
 	ptr = &antMan;
+	/*Team2.Push(ptr);*/
+
 	Game civilWar;
-	Stack winner = civilWar.Battle(Team1, Team2);
+
+	bool endGame = true;
+
+	while (endGame)
+	{
+		endGame = civilWar.Battle(Team1, Team2);
+	}
 	
-	std::cout << winner <<std::endl;
 	system("pause");
 }

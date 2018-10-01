@@ -17,7 +17,7 @@ public:
 	
 	}
 	Hero(std::string thing);
-	
+	~Hero() {}
 	std::string report();
 	void changePower();
 
@@ -39,4 +39,3 @@ public:
 
 	int choice(Stack team);
 };
-

@@ -3,5 +3,5 @@ class Stack;
 class Game
 {
 public:
-	Stack Battle(Stack&team1, Stack&team2);
+	bool Battle(Stack&team1, Stack&team2);
 };
