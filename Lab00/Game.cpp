@@ -14,6 +14,7 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 	bool canFight = true;
 	int j;
 	int h;
+	int ranHero;
 	//this loop allow both teams to fight until all heroes in one of the teams have fallen
 	while (canFight)
 	{
@@ -25,15 +26,16 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 		h = 0;
 		//a hero from team1 randomly selects a hero from team2 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
 		//the heroes it doesn't want to fight are placed in a temporary array
-		for (j = 5; j >= hero1.choice(team2); j--)
+		ranHero = hero1.choice(team2);
+		for (j = 5; j > ranHero; j--)
 		{
-			tmp = team2.Top();
-			ptr = &tmp;
+			hero2 = team2.Top();
+			ptr = &hero2;
 			temp.Push(ptr);
 			team2.Pop();
 			h++;
 		}
-		hero1 = team1.Top();
+		
 		hero2 = team2.Top();
 
 
@@ -60,23 +62,29 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			}
 		}
 
-	}
 
-	//	//this set of if statements checks who has won the fight and pops them off of the stack accordingly
+
+		//	//this set of if statements checks who has won the fight and pops them off of the stack accordingly
 		if (hero1.isAlive() && (!hero2.isAlive()))
 		{
 			std::cout << hero2.report() << " " << "has been defeated" << std::endl;
-			std::cout << hero1.report() << " " << "wins this round." <<std::endl;
-			team2.Pop();
+			std::cout << hero1.report() << " " << "wins this round." << std::endl;
 			system("pause");
+			team2.Pop();
+			team1.Pop();
+			ptr = &hero1;
+			team1.Push(ptr);
 		}
 		else if (((hero2.isAlive())) && (!(hero1.isAlive())))
 
 		{
 			std::cout << hero1.report() << " " << "has been defeated" << std::endl;
 			std::cout << hero2.report() << " " << "wins this round." << std::endl;
-			team1.Pop();
 			system("pause");
+			team1.Pop();
+			team2.Pop();
+			ptr = &hero2;
+			team2.Push(ptr);
 		}
 		else if ((!(hero1.isAlive())) && (!(hero2.isAlive())))
 		{
@@ -86,7 +94,7 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			system("pause");
 		}
 
-	//	//the remaining fighters of team2 are then pushed back on to their stack
+		//	//the remaining fighters of team2 are then pushed back on to their stack
 		for (h; h >= 1; h--)
 		{
 			tmp = temp.Top();
@@ -95,23 +103,24 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			temp.Pop();
 		}
 
-	//	//team2's turn
+		//	//team2's turn
 		h = 0;
-	//	//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
-	//	//the heroes it doesn't want to fight are placed in a temporary array
-		for (j = 5; j != hero2.choice(team1); j--)
+		//	//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
+		//	//the heroes it doesn't want to fight are placed in a temporary array
+		hero2 = team2.Top();
+		ranHero = hero2.choice(team1);
+		for (j = 5; j > ranHero; j--)
 		{
-			tmp = team1.Top();
-			ptr = &tmp;
+			hero1 = team1.Top();
+			ptr = &hero1;
 			temp.Push(ptr);
 			team1.Pop();
 			h++;
 		}
 
-		hero1 = team2.Top();
-		hero2 = team1.Top();
-
-	//	//the two heroes then continuosly fight until at least one have died
+		
+		hero1 = team1.Top();
+		//	//the two heroes then continuosly fight until at least one have died
 
 		while (canFight)
 		{
@@ -135,22 +144,28 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			}
 		}
 
-	//	//this set of if statements check who has won the fight and pops them off of the stack accordingly
+		//	//this set of if statements check who has won the fight and pops them off of the stack accordingly
 
 		if (hero1.isAlive() && (!hero2.isAlive()))
 		{
 			std::cout << hero2.report() << " " << "has been defeated" << std::endl;
 			std::cout << hero1.report() << " " << "wins this round." << std::endl;
-			team2.Pop();
 			system("pause");
+			team2.Pop();
+			team1.Pop();
+			ptr = &hero1;
+			team1.Push(ptr);
 		}
 		else if (((hero2.isAlive())) && (!(hero1.isAlive())))
 
 		{
 			std::cout << hero1.report() << " " << "has been defeated" << std::endl;
 			std::cout << hero1.report() << " " << "wins this round." << std::endl;
-			team1.Pop();
 			system("pause");
+			team1.Pop();
+			team2.Pop();
+			ptr = &hero2;
+			team2.Push(ptr);
 		}
 		else if ((!(hero1.isAlive())) && (!(hero2.isAlive())))
 		{
@@ -181,8 +196,8 @@ Stack Game::Battle(Stack & team1, Stack & team2)
 			canFight = false;
 			winner = team1;
 		}
-	
-	
+
+	}
 
 	return winner;
 }

@@ -59,5 +59,5 @@ int main()
 	Stack winner = civilWar.Battle(Team1, Team2);
 	
 	std::cout << winner <<std::endl;
-
+	system("pause");
 }

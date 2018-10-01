@@ -4,6 +4,7 @@ Stack::Stack(std::string thing)
 {
 	mCount = 0;
 	mData = new Hero[6];
+	name = "default";
 	name = thing;
 }
 Stack::Stack()

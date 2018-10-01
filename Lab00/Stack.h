@@ -6,7 +6,7 @@ class Hero;
 class Stack
 {
 private:
-	Hero* mData;
+	Hero *mData;
 	int mCount;
 	std::string name;
 public:
