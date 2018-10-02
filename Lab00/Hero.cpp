@@ -2,6 +2,8 @@
 #include "Stack.h"
 #include <time.h>
 #include <string>
+#include "Game.h"
+
 void Hero::Fight(Hero&fighter)
 {
 	changePower();
@@ -16,7 +18,7 @@ Hero::Hero(std::string thing)
 	mDefense = rand() % 30 +5;
 }
 
-std::string Hero::report()
+std::string Hero::title()
 {
 	return name;
 }
@@ -33,14 +35,26 @@ bool Hero::isAlive()
 
 void Hero::TakeDamage(int attack)
 {
-	mHealth = mHealth + (mDefense - attack);
+	int damageTaken;
+	damageTaken = attack-mDefense;
+	if (damageTaken < 0)
+	{
+		
+		std::cout << name << " blocked!" << std::endl;
+	}
+	else
+	{
+		mHealth = mHealth - damageTaken;
+	}
+	
 }
 
 int Hero::choice(Stack team)
 {
-	
+
+	int max = team.report();
 	int choice;
-	choice = team.report();
+	choice = rand() % max + 1;
 	return choice;
 }
 

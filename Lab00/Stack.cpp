@@ -70,6 +70,6 @@ int Stack::report()
 
 std::ostream & operator<<(std::ostream& os, Stack stack)
 {
-	os << stack.name <<std::endl;
+	os << stack.name;
 	return os;
 }

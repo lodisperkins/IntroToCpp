@@ -3,14 +3,25 @@
 #include "Game.h"
 #include "Hero.h"
 #include "Stack.h"
+#include "Game.h"
 int main()
-{
-	//defense equation needs to be fixeed
-	//unknwon error occurs during second fight
-	//top function needs to be checked
-	//player input wanted but not needed
-	//screen is cluttered
+{//player input wanted but not needed
+	int input;
+	Game civilWar;
+
+	std::cout << "Stack vs. Stack Infinite\n";
+	system("pause");
 	
+	
+	std::cout << "Select game mode\n";
+	std::cout << "(1) Play as team Iron Man\n";
+	std::cout << "(2) Play as team Captain America\n";
+	std::cout << "(3) Watch the teams battle\n";
+	std::cin >> input;
+	system("cls");
+	
+	civilWar.mode(input);
+
 	srand(time(NULL));
 
 	//team 1
@@ -55,13 +66,13 @@ int main()
 	Team2.Push(ptr);
 	ptr = &scarletWitch;
 	Team2.Push(ptr);
-	ptr = &antMan;
-	/*Team2.Push(ptr);*/
+	
 
-	Game civilWar;
+	
 
+	
+	
 	bool endGame = true;
-
 	while (endGame)
 	{
 		endGame = civilWar.Battle(Team1, Team2);

@@ -18,7 +18,7 @@ public:
 	}
 	Hero(std::string thing);
 	~Hero() {}
-	std::string report();
+	std::string title();
 	void changePower();
 
 	bool isAlive();
@@ -35,6 +35,11 @@ public:
 		os << hero.name << "'s health is: " << hero.mHealth << std::endl << hero.name <<"'s power is: " << hero.mPower
 			<< std ::endl << hero.name << "'s defense is: " << hero.mDefense;
 		return os;
+	}
+	void defend()
+	{
+		int protection = 10;
+		mDefense = protection + mDefense;
 	}
 
 	int choice(Stack team);
