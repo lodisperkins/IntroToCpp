@@ -19,28 +19,21 @@ public:
 	Hero(std::string thing);
 	~Hero() {}
 	std::string title();
+	int HP();
 	void changePower();
+	void changeDefense();
 
 	bool isAlive();
 
 	void TakeDamage(int attack);
 	
-	bool operator == (const Hero& other)
-	{
-		return mHealth == other.mHealth && mPower == other.mPower && name == other.name;
-	}
+	bool operator == (const Hero& other);
+	
 
-	friend std::ostream& operator<<(std::ostream& os, const Hero hero)
-	{
-		os << hero.name << "'s health is: " << hero.mHealth << std::endl << hero.name <<"'s power is: " << hero.mPower
-			<< std ::endl << hero.name << "'s defense is: " << hero.mDefense;
-		return os;
-	}
-	void defend()
-	{
-		int protection = 10;
-		mDefense = protection + mDefense;
-	}
+	friend std::ostream& operator<<(std::ostream& os, const Hero hero);
+	
+	void defend();
+	
 
 	int choice(Stack team);
 };

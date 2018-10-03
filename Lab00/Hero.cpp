@@ -14,8 +14,12 @@ Hero::Hero(std::string thing)
 {
 	name = thing;
 	mHealth = 100;
-	mPower = rand() % 50  + 15;
-	mDefense = rand() % 30 +5;
+	mPower = rand() % 25  + 10;
+	mDefense = rand() % 20 +5;
+}
+int Hero::HP()
+{
+	return mHealth;
 }
 
 std::string Hero::title()
@@ -25,7 +29,12 @@ std::string Hero::title()
 
 void Hero::changePower()
 {
-	mPower = rand() % 50 + 15;
+	mPower = rand() % 25 + 15;
+}
+
+void Hero::changeDefense()
+{
+	mDefense =rand() % 20 + 5;
 }
 
 bool Hero::isAlive()
@@ -36,6 +45,7 @@ bool Hero::isAlive()
 void Hero::TakeDamage(int attack)
 {
 	int damageTaken;
+	changeDefense();
 	damageTaken = attack-mDefense;
 	if (damageTaken < 0)
 	{
@@ -49,6 +59,20 @@ void Hero::TakeDamage(int attack)
 	
 }
 
+bool Hero::operator==(const Hero & other)
+{
+	
+		return mHealth == other.mHealth && mPower == other.mPower && name == other.name;
+	
+}
+
+void Hero::defend()
+{
+	
+		int protection = 50;
+		mDefense = protection + mDefense;
+}
+
 int Hero::choice(Stack team)
 {
 
@@ -58,4 +82,11 @@ int Hero::choice(Stack team)
 	return choice;
 }
 
-
+std::ostream & operator<<(std::ostream & os, const Hero hero)
+{
+	
+		os << hero.name << "'s health is: " << hero.mHealth << std::endl << hero.name << "'s power is: " << hero.mPower
+			<< std::endl << hero.name << "'s defense is: " << hero.mDefense;
+		return os;
+	
+}

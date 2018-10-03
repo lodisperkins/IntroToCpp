@@ -5,7 +5,7 @@
 #include "Stack.h"
 #include "Game.h"
 int main()
-{//player input wanted but not needed
+{
 	int input;
 	Game civilWar;
 
@@ -17,6 +17,8 @@ int main()
 	std::cout << "(1) Play as team Iron Man\n";
 	std::cout << "(2) Play as team Captain America\n";
 	std::cout << "(3) Watch the teams battle\n";
+
+
 	std::cin >> input;
 	system("cls");
 	
@@ -66,6 +68,8 @@ int main()
 	Team2.Push(ptr);
 	ptr = &scarletWitch;
 	Team2.Push(ptr);
+	ptr = &antMan;
+	Team2.Push(ptr);
 	
 
 	
@@ -75,7 +79,9 @@ int main()
 	bool endGame = true;
 	while (endGame)
 	{
+		system("cls");
 		endGame = civilWar.Battle(Team1, Team2);
+		
 	}
 	
 	system("pause");
