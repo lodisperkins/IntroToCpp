@@ -102,12 +102,14 @@ bool Game::Battle(Stack & team1, Stack & team2)
 				case(1):
 				{
 					hero1.Fight(hero2);
+					std::cout << hero1.title() << " attacked!\n";
 					pTurn = false;
 					break;
 				}
 				case(2):
 				{
 					hero1.defend();
+					std::cout << hero1.title() << " raised his defense!\n";
 					pTurn = false;
 					break;
 				}
@@ -246,12 +248,14 @@ bool Game::Battle(Stack & team1, Stack & team2)
 				case(1):
 				{
 					hero2.Fight(hero1);
+					std::cout << hero2.title() << " attacked!\n";
 					pTurn = false;
 					break;
 				}
 				case(2):
 				{
 					hero2.defend();
+					std::cout << hero2.title() << " raised their defense!\n";
 					pTurn = false;
 					break;
 				}
@@ -408,12 +412,14 @@ bool Game::Battle(Stack & team1, Stack & team2)
 					case(1):
 					{
 						hero2.Fight(hero1);
+						std::cout << hero2.title() << " attacked!\n";
 						pTurn = false;
 						break;
 					}
 					case(2):
 					{
 						hero2.defend();
+						std::cout << hero2.title() << " raised their defense!\n";
 						pTurn = false;
 						break;
 					}
@@ -552,12 +558,14 @@ bool Game::Battle(Stack & team1, Stack & team2)
 					case(1):
 					{
 						hero1.Fight(hero2);
+						std::cout << hero1.title() << " attacked!\n";
 						pTurn = false;
 						break;
 					}
 					case(2):
 					{
 						hero1.defend();
+						std::cout << hero1.title() << " raised their defense!\n";
 						pTurn = false;
 						break;
 					}

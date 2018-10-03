@@ -69,7 +69,7 @@ bool Hero::operator==(const Hero & other)
 void Hero::defend()
 {
 	
-		int protection = 50;
+		int protection = 20;
 		mDefense = protection + mDefense;
 }
 
