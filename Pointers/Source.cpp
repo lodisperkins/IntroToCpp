@@ -95,4 +95,9 @@ int main()
 	double*ptrDbl = &numbs[0];
 	//double maxarray(ptrDbl, 5);
 	bool hasChar = checkArray(ptrname, 'f');
+	int num = 5;
+	//testing for linked list
+	int*lastptr = &num;
+	int*midptr = lastptr;
+	int *begptr = midptr;
 }

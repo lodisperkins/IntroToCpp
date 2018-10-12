@@ -1,10 +1,26 @@
 #include "list.h"
+template<typename h>
+iterator list<h>::begin()
+{
+	return iterator();
+}
 template<typename list>
 list<list>::list()
 {
 }
-template<typename t>
-const bool list<t>::isEmpty()
+template<typename h>
+list<h>::~list()
+{
+}
+template<typename h>
+void list<h>::initialize()
+{
+	count = 0;
+	first = nullptr;
+	last = nullptr;
+}
+template<typename h>
+const bool list<h>::isEmpty()
 {
 	if (count == 0)
 		return false;
@@ -12,8 +28,8 @@ const bool list<t>::isEmpty()
 		return true;
 }
 
-template<typename t>
-const int list<t>::length()
+template<typename h>
+const int list<h>::length()
 {
 	return count;
 }

@@ -1,25 +1,25 @@
 #pragma once
 #include "nodetype.h"
 #include "iterator.h"
-template <typename t>
-class list<t>
+template <typename h>
+class list
 {
 protected:
 	int count;
-	number<t> * first;
-	number *last;
+	nodetype<h> * first;
+	nodetype<h> *last;
 public:
 	const list &operator= (const list & linkedlist);
 	void initialize();
 	const bool isEmpty();
 	const void print();
 	const int length();
-	void destroy();
+	void destroy(); 
 	const list front();
-	const bool search(const list& object) = 0;
-	void insertfirst(const list& object) = 0;
-	void insertlast(const list& object) = 0;
-	void deleteNode(const list& object) = 0;
+	virtual const bool search(const h& object) = 0;
+	virtual void insertfirst(const h& object) = 0;
+	virtual void insertlast(const h& object) = 0;
+	virtual void deleteNode(const h& object) = 0;
 	iterator begin();
 	iterator end();
 	list();

@@ -124,6 +124,7 @@
     <ClInclude Include="list.h" />
     <ClInclude Include="nodechange.h" />
     <ClInclude Include="nodetype.h" />
+    <ClInclude Include="unorderedlist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

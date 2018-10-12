@@ -27,6 +27,9 @@
     <ClInclude Include="nodechange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="unorderedlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iterator.cpp">
