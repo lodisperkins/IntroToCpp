@@ -1,19 +1,40 @@
 #pragma once
 #include "list.h"
 template <typename h>
-class unList : public list<h>
+class unorderedList : public list<h>
 {
 public:
-	void insertfirst(const nodetype<h>& object)
+	void insertfirst(const h & object)
 	{
-		object.link = first;
-		first = object;
+		nodetype<T> *newNode = new nodetype<T>;
+		nodetype->info = object;
+		newNode->link =first;
+		first = newNode;
 		count++;
 	}
 	void insertlast(const h& object)
+
 	{
-		object.link = last;
-		last = object;
-		count++;
+		if (count == 0)
+		{
+			nodetype<T> *newNode = new nodetype<T>;
+			nodetype->info = object;
+			last= newNode;
+			newNode->link = nullptr;
+			count++;
+		}
+		else 
+		{
+			nodetype<T> *newNode = new nodetype<T>;
+			nodetype->info = object;
+			last->link = newNode;
+			last = newNode;
+			newNode->link = nullptr;
+			count++;
+		}
+	}
+	virtual const bool search(const h& object)
+	{
+
 	}
 };

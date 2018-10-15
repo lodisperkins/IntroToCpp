@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 //Create a function with return type of type integer. The function will take in two arguments.
 //The first argument is a pointer to an array and the second is the size of the array
 //The function will return the sum of the two largest values in the array
@@ -16,6 +17,30 @@ public:
 		return temp;
 	}
 };
+
+char common(char*ptr)
+{
+	char*size = ptr;
+	char*temp = ptr;
+	char answer ='a';
+	int count=0;
+	while (*size <= 127 && *size > -52)
+	{
+		size++;
+		count++;
+	}
+	int i =0;
+	while (i < count)
+	{
+		if (*temp == *ptr)
+		{
+			answer = *temp;
+			ptr++;
+		}
+
+	}
+	return answer;
+}
 
 
 
@@ -52,7 +77,9 @@ int main()
 	sum = add(8, 98);
 	sum = add(7.1f, 8.76f);
 	thing sumthing = add(value1, value2);
-	
+	char thing[5] = { 'a','p','p','l','e' };
+	char*ptr = thing;
+	common(ptr);
 }
 thing::thing()
 {

@@ -2,15 +2,20 @@
 template <typename i>
 class nodetype
 {
-private:
+public:
 	i info;
 	nodetype*link;
-public:
+
 	nodetype();
 	nodetype(i info);
 };
 
 template<typename i>
-inline nodetype<i>::nodetype()
+nodetype<i>::nodetype()
 {
 }
+template<typename i>
+nodetype<i>::nodetype(i info)
+{
+}
+

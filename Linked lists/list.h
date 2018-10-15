@@ -30,3 +30,42 @@ private:
 
 };
 
+
+template<typename h>
+iterator list<h>::begin()
+{
+	return iterator();
+}
+
+template<typename list>
+list<list>::list()
+{
+}
+template<typename h>
+list<h>::~list()
+{
+}
+template<typename h>
+void list<h>::initialize()
+{
+	count = 0;
+	first = last;
+	last = nullptr;
+}
+template<typename h>
+const bool list<h>::isEmpty()
+{
+	if (count == 0)
+		return true;
+	else
+		return false;
+}
+
+template<typename h>
+const int list<h>::length()
+{
+	return count;
+}
+
+
+
