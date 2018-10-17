@@ -31,14 +31,11 @@ private:
 };
 
 
-template<typename h>
-iterator list<h>::begin()
-{
-	return iterator();
-}
 
-template<typename list>
-list<list>::list()
+
+
+template<typename h>
+list<h>::list()
 {
 }
 template<typename h>

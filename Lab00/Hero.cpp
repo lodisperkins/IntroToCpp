@@ -61,7 +61,7 @@ void Hero::TakeDamage(int attack)
 
 bool Hero::operator==(const Hero & other)
 {
-	
+	std::cout << name;
 		return mHealth == other.mHealth && mPower == other.mPower && name == other.name;
 	
 }

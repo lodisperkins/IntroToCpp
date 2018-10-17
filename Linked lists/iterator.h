@@ -2,7 +2,7 @@
 #include "list.h"
 #include "nodetype.h"
 template <typename h>
-class  iterator: public list  <h>
+class  iterator
 {
 private:
 	nodetype<h> * current;
@@ -41,7 +41,7 @@ iterator<h> iterator<h>::operator++()
 template<typename h>
 const bool iterator<h>::operator==(const iterator<h>& iter)
 {
-	return *current = iter.current;
+	return *current == iter.current;
 }
 
 template<typename h>

@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="iterator.cpp" />
     <ClCompile Include="list.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="nodetype.cpp" />
   </ItemGroup>
   <ItemGroup>

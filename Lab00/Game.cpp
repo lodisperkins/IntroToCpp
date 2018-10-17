@@ -4,6 +4,7 @@
 #include  <time.h>
 void Game::mode(int input)
 {
+	//Checks which game mode the player has picked
 	if(input == 1)
 	{
 		mplayerIron = true;
@@ -20,12 +21,12 @@ void Game::mode(int input)
 Game::Game()
 {
 }
+//Compares the values of two heroes to simulate a fight
 bool Game::Battle(Stack & team1, Stack & team2)
 {
 	Stack winner;
 	Hero hero1;
 	Hero hero2;
-	Hero Dead("dead");
 	Hero tmp;
 	Stack temp = Stack();
 	bool canFight = true;
@@ -34,10 +35,12 @@ bool Game::Battle(Stack & team1, Stack & team2)
 	int pinput;
 	int cinput;
 	int ranHero;
-	//this loop allow both teams to fight until all heroes in one of the teams have fallen
+	
 		//team1's turn 
+	//prints to the console the amount of heroes each team has left
 	std::cout << team1 << ": " << team1.report() << " heroes available          " << team2 << ": " << team2.report() << " heroes available\n";
 	std::cout <<" \n";
+	//checks if either team has won
 	if (team1.report() == 0)
 	{
 		canFight = false;
@@ -81,6 +84,7 @@ bool Game::Battle(Stack & team1, Stack & team2)
 		
 		std::cout << hero1.title() << "              " << hero2.title() << std::endl;
 		std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
+		//if mplayerIron is true it allows the user to select the options for a hero on team ironman
 		if (mplayerIron == true)
 		{
 			//player turn
@@ -169,16 +173,25 @@ bool Game::Battle(Stack & team1, Stack & team2)
 
 
 		}
+		//if msim is true it displays the stats for each hero and options are picked randomly
 		else if (msim == true)
 		{
+			system("cls");
+			std::cout << hero1.title() << "              " << hero2.title() << std::endl;
+			std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
 			hero1.Fight(hero2);
 			std::cout << hero1 << std::endl;
+			std::cout << hero2 << std::endl;
 
 			if (hero1.isAlive() == false || hero2.isAlive() == false)
 			{
 				break;
 			}
 			hero2.Fight(hero1);
+			system("cls");
+			std::cout << hero1.title() << "              " << hero2.title() << std::endl;
+			std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
+			std::cout << hero1 << std::endl;
 			std::cout << hero2 << std::endl;
 
 			if (hero1.isAlive() == false || hero2.isAlive() == false)
@@ -192,6 +205,8 @@ bool Game::Battle(Stack & team1, Stack & team2)
 				continue;
 			}
 		}
+		//if mplayerCap is true the computer chooses an option first and then
+		//it allows the user to select the options for a hero on team cap
 		else if (mplayerCap == true)
 		{
 			//coms turn
@@ -333,8 +348,7 @@ bool Game::Battle(Stack & team1, Stack & team2)
 
 		//	//team2's turn
 		h = 0;
-		//	//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
-		//	//the heroes it doesn't want to fight are placed in a temporary array
+		//checks if anyone has won by seeing if either stack has zero heroes in it
 		if (team1.report() == 0)
 		{
 			canFight = false;
@@ -353,6 +367,8 @@ bool Game::Battle(Stack & team1, Stack & team2)
 		{
 			hero2 = team2.Top();
 		}
+		//	//a hero from team2 randomly selects a hero from team1 to fight. it pops the heroes it doesn't want to fight off the stack until it gets its desired hero
+		//	//the heroes it doesn't want to fight are placed in a temporary array
 
 		ranHero = hero2.choice(team1);
 		for (j = team1.report(); j > ranHero; j--)
@@ -391,6 +407,7 @@ bool Game::Battle(Stack & team1, Stack & team2)
 		{
 			std::cout << hero1.title() << "              " << hero2.title() << std::endl;
 			std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
+			//if mplayerCap is true it allows the user to select the options for a hero on team cap
 			if (mplayerCap == true)
 			{
 				//player turn
@@ -479,16 +496,26 @@ bool Game::Battle(Stack & team1, Stack & team2)
 
 
 			}
+			//if msim is true it displays the stats for each hero and options are picked randomly
 			else if (msim == true)
 			{
+					system("cls");
+					std::cout << hero1.title() << "              " << hero2.title() << std::endl;
+					std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
 					hero1.Fight(hero2);
 					std::cout << hero1 << std::endl;
+					std::cout << hero2 << std::endl;
 
 					if (hero1.isAlive() == false || hero2.isAlive() == false)
 					{
 						break;
 					}
 					hero2.Fight(hero1);
+					
+					system("cls");
+					std::cout << hero1.title() << "              " << hero2.title() << std::endl;
+					std::cout << "HP: " << hero1.HP() << "                    " << "HP: " << hero2.HP() << std::endl;
+					std::cout << hero1 << std::endl;
 					std::cout << hero2 << std::endl;
 
 					if (hero1.isAlive() == false || hero2.isAlive() == false)
@@ -502,6 +529,8 @@ bool Game::Battle(Stack & team1, Stack & team2)
 						continue;
 					}
 			}
+			//if mplayerCap is true the computer chooses an option first and then
+		//it allows the user to select the options for a hero on team cap
 			else if (mplayerIron == true)
 			{
 				//coms turn
@@ -640,27 +669,11 @@ bool Game::Battle(Stack & team1, Stack & team2)
 
 		}
 
-		//this checks if either team still has heroes alive if a team doesn't have any heroes alive it makes the opposing team the winner 
-		//and sets canFight to false thus breaking the loop
+		
 
 
 
 	
 }
 
-////while (canFight)
-//{
-//	hero1.Fight(hero2);
-//	std::cout << hero1.
-//		hero2.Fight(hero1);
-//	if (hero1.isAlive == false || hero2.isAlive == false)
-//	{
-//		break;
-//	}
-//	else
-//	{
-//		continue;
-//	}
-//}
-//winner = hero1.isAlive() ? hero1 : hero2;
-//return winner;
+

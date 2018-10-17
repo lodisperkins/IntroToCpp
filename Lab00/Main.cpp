@@ -6,11 +6,12 @@
 #include "Game.h"
 int main()
 {
+	//Creates a loop that allows the user to go back to the main menu after the game has finished
 	while (true)
 	{
 		int input;
 		Game civilWar;
-
+		//Prints out available options for main menu
 		std::cout << "Stack vs. Stack Infinite\n";
 		std::cout << " \n";
 		std::cout << "Select game mode\n";
@@ -42,7 +43,7 @@ int main()
 		Hero antMan("Ant-Man");;
 
 		Hero *ptr;
-
+		//Pushes heroes into two separate stacks
 		Stack Team1("Team Iron Man");
 		ptr = &ironMan;
 		Team1.Push(ptr);
@@ -75,7 +76,7 @@ int main()
 
 
 
-
+		//creates a loop that repeatedly calls the battle function to cycle through heroes until at least one stack is empty
 		bool endGame = true;
 		while (endGame)
 		{
@@ -83,7 +84,7 @@ int main()
 			endGame = civilWar.Battle(Team1, Team2);
 
 		}
-
+		//Allows the user to either exit the program or start the loop again
 		std::cout << " Press 'q' to quit or w to play again\n";
 		std::cin >> input;
 		if (input == 'q')
