@@ -1,67 +1,67 @@
 #pragma once
 #include "list.h"
-#include"iterator.h"
+
 template <typename h>
 class unorderedList : public list<h>
 {
 public:
 	void insertfirst(const h & object)
 	{
-		if (count == 0)
+		if (this->count == 0)
 		{
 			nodetype<h> *newNode = new nodetype<h>;
-			nodetype->info = object;
-			last = newNode;
-			first = newNode;
-			count++;
+			newNode->info = object;
+			this->last = newNode;
+			this->first = newNode;
+			this->count++;
 		}
 		else
 		{
 
 			nodetype<h> *newNode = new nodetype<h>;
-			nodetype->info = object;
-			newNode->link = first;
-			first = newNode;
-			count++;
+			newNode->info = object;
+			newNode->link = this->first;
+			this->first = newNode;
+			this->count++;
 		}
 	}
 	void insertlast(const h& object)
 
 	{
-		if (count == 0)
+		if (this ->count == 0)
 		{
 			nodetype<h> *newNode = new nodetype<h>;
-			nodetype->info = object;
-			last= newNode;
-			first = newNode;
+			newNode->info = object;
+			this->last= newNode;
+			this->first = newNode;
 			newNode->link = nullptr;
-			count++;
+			this->count++;
 		}
 		else 
 		{
 			nodetype<h> *newNode = new nodetype<h>;
-			nodetype->info = object;
-			last->link = newNode;
-			last = newNode;
+			newNode->info = object;
+			this->last->link = newNode;
+			this->last = newNode;
 			newNode->link = nullptr;
-			count++;
+			this->count++;
 		}
 	}
-	virtual const bool search(const h& object)
+	bool search(const h& object) const
 	{
-		iterator<h> ptr;
-		ptr.current = first;
-		while (ptr.current->info != object)
+		nodetype<h> newNode = { object, nullptr };
+		iterator<h> iter(newNode);
+		iterator<h> iter1(first);
+		while (iter != iter1)
 		{
-			ptr++;
-			if (ptr.current->info == object)
+			iter1++;
+			if (iter1 == iter)
 			{
 				return true;
 			}
 		}
-		
 	}
-	virtual void deleteNode(const h& object)
+	void deleteNode(const h& object)
 	{
 
 	}

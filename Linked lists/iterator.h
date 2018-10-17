@@ -1,5 +1,4 @@
 #pragma once
-#include "list.h"
 #include "nodetype.h"
 template <typename h>
 class  iterator

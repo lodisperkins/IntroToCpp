@@ -17,6 +17,17 @@ public:
 		return temp;
 	}
 };
+int SumTo(int number)
+{
+	int start = 1;
+	int sum = 0;
+	while (start <= number)
+	{
+		sum = start + sum;
+		start++;
+	}
+	return sum;
+}
 
 char common(char*ptr)
 {
@@ -71,6 +82,9 @@ int arr(int*ptr, int size)
 }
 int main()
 {
+	int test = 5;
+	int answer = SumTo(test);
+
 	thing value1;
 	thing value2;
 	float sum;

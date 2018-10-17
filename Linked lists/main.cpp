@@ -13,4 +13,5 @@ int main()
 	mylist.initialize();
 	mylist.insertfirst(5);
 	mylist.insertlast(2);
+	mylist.search(2);
 }

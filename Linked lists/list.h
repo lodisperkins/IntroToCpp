@@ -15,13 +15,14 @@ public:
 	const void print();
 	const int length();
 	void destroy(); 
-	const list front();
-	virtual const bool search(const h& object) = 0;
+	h front() const;
+	h back() const;
+	virtual bool search(const h& object) const = 0;
 	virtual void insertfirst(const h& object) = 0;
 	virtual void insertlast(const h& object) = 0;
 	virtual void deleteNode(const h& object) = 0;
-	iterator begin();
-	iterator end();
+	iterator<h> begin();
+	iterator<h> end();
 	list();
 	list(const list&);
 	~list();
