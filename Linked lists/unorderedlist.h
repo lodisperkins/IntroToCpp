@@ -78,6 +78,7 @@ public:
 				{
 					delete this->first;
 					this->initialize();
+					this->count--;
 					break;
 				}
 				else if ((iter2->info || iter->info) == object && this->count == 2)
@@ -87,6 +88,7 @@ public:
 						delete iter;
 						this->first = &(*iter2);
 						this->last = &(*iter2);
+						this->count--;
 						break;
 					}
 					else if (iter2->info == object)
@@ -94,6 +96,7 @@ public:
 						delete iter2;
 						this->first = &(*iter);
 						this->last = &(*iter);
+						this->count--;
 						break;
 					}
 
@@ -102,12 +105,14 @@ public:
 				{
 					iter = &(*iter2->link);
 					delete iter2;
+					this->count--;
 					break;
 				}
 				else if (iter->info == object)
 				{
 					delete iter;
 					this->first = &(*iter2);
+					this->count--;
 					break;
 				}
 				else if (iter2->info != object && iter2->link == nullptr)

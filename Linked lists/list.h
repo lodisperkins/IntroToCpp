@@ -9,7 +9,7 @@ protected:
 	nodetype<h> * first;
 	nodetype<h> *last;
 public:
-	const list &operator= (const list & linkedlist);
+	const list<h> &operator= (const list<h> & linkedlist);
 	void initialize();
 	const bool isEmpty();
 	const void print();
@@ -24,7 +24,7 @@ public:
 	iterator<h> begin();
 	iterator<h> end();
 	list();
-	list(const list&);
+	list(const list<h>&);
 	~list();
 private:
 	void copylist(const list&);
@@ -52,12 +52,72 @@ template<typename h>
 template<typename h>
 list<h>::list()
 {
+
+}
+template<typename h>
+list<h>::list(const list<h>& other)
+{
+	this->first = new nodetype<h>;
+	nodetype<h>* iter = &(*this->first);
+	nodetype<h>*iter2 = &(*other.first);
+	while (true)
+	{
+		
+		iter->info = iter2->info;
+		iter->link = new nodetype<h>;
+		iter = &(*iter->link);
+		if(count == (other.count -1))
+		{
+			iter->info = iter2->info;
+			iter->link = nullptr;
+			this->last = iter;
+			break;
+		}
+		iter2 = &(*iter2->link);
+		count++;
+	}
 }
 template<typename h>
 list<h>::~list()
 {
 }
 
+template<typename h>
+void list<h>::copylist(const list &other)
+{
+	nodetype<h>* iter = &(*this->first);
+	nodetype<h>*iter2 = &(*other.first);
+	int x = 1;
+	while (true)
+	{
+		if (iter== nullptr)
+		{
+			insertlast(iter2->info);
+		}
+		else
+		{
+			iter->info = iter2->info;
+		}
+		
+		if (x == other.count)
+		{
+			break;
+		}
+		iter = &(*iter->link);
+		iter2 = &(*iter2->link);
+		x++;
+
+	}
+	
+}
+
+
+template<typename h>
+ const list<h> & list<h>::operator=(const list<h> & linkedlist)
+{
+	 this->copylist(linkedlist);
+	 return *this;
+}
 
 template<typename h>
 void list<h>::initialize()
