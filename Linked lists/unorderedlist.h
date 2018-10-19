@@ -49,20 +49,75 @@ public:
 	}
 	bool search(const h& object) const
 	{
-		nodetype<h> newNode = { object, nullptr };
-		iterator<h> iter(newNode);
-		iterator<h> iter1(first);
-		while (iter != iter1)
+	
+		iterator<h> iter1(this->first);
+		while (object != *iter1)
 		{
-			iter1++;
-			if (iter1 == iter)
+			
+			if (*iter1 == object)
 			{
 				return true;
 			}
+			if (*iter1 != object && iter1 == nullptr)
+			{
+				return false;
+			}
+			++iter1;
 		}
 	}
 	void deleteNode(const h& object)
 	{
+		if (this->count != 0)
+		{
+			nodetype<h>* iter = &(*this->first);
+			nodetype<h>* iter2 = &(*this->first->link);
+			while (object != iter2->info)
+			{
 
+				if (iter->info == object && this->count == 1)
+				{
+					delete this->first;
+					this->initialize();
+					break;
+				}
+				else if ((iter2->info || iter->info) == object && this->count == 2)
+				{
+					if (iter->info == object)
+					{
+						delete iter;
+						this->first = &(*iter2);
+						this->last = &(*iter2);
+						break;
+					}
+					else if (iter2->info == object)
+					{
+						delete iter2;
+						this->first = &(*iter);
+						this->last = &(*iter);
+						break;
+					}
+
+				}
+				else if (iter2->info == object && this->count > 2)
+				{
+					iter = &(*iter2->link);
+					delete iter2;
+					break;
+				}
+				else if (iter->info == object)
+				{
+					delete iter;
+					this->first = &(*iter2);
+					break;
+				}
+				else if (iter2->info != object && iter2->link == nullptr)
+				{
+					break;
+				}
+				iter = &(*iter->link);;
+				iter2 = &(*iter2->link);
+			}
+		}
 	}
 };
+

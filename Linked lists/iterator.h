@@ -34,19 +34,19 @@ h iterator<h>::operator*()
 template<typename h>
 iterator<h> iterator<h>::operator++()
 {
-	current = current->link;
+	return current = current->link;
 }
 
 template<typename h>
 const bool iterator<h>::operator==(const iterator<h>& iter)
 {
-	return *current == iter.current;
+	return current == iter.current;
 }
 
 template<typename h>
 const bool iterator<h>::operator!=(const iterator<h>& iter)
 {
-	return *current != iter.current;
+	return current != iter.current;
 }
 
 

@@ -12,6 +12,10 @@ int main()
 	iterator<int> iter(ptr);
 	mylist.initialize();
 	mylist.insertfirst(5);
+	mylist.insertfirst(4);
 	mylist.insertlast(2);
-	mylist.search(2);
+	bool isthere = mylist.search(2);
+	mylist.print();
+	mylist.destroy();
+	mylist.deleteNode(4);
 }

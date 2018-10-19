@@ -36,6 +36,20 @@ private:
 
 
 template<typename h>
+iterator<h> list<h>::begin()
+{
+	iterator<h> iterator(*this->first);
+	return iterator;
+}
+
+template<typename h>
+ iterator<h> list<h>::end()
+{
+	 iterator<h> iterator(*this->last);
+	 return iterator;
+}
+
+template<typename h>
 list<h>::list()
 {
 }
@@ -43,6 +57,8 @@ template<typename h>
 list<h>::~list()
 {
 }
+
+
 template<typename h>
 void list<h>::initialize()
 {
@@ -60,9 +76,56 @@ const bool list<h>::isEmpty()
 }
 
 template<typename h>
+const void list<h>::print()
+{
+	nodetype<h>* iter = &(*this->first);
+	while (iter != nullptr)
+	{
+		std::cout << iter->info << std::endl;
+		iter = &(*iter->link);
+		
+	}
+	return void();
+}
+
+template<typename h>
 const int list<h>::length()
 {
 	return count;
+}
+
+template<typename h>
+void list<h>::destroy()
+{
+	nodetype<h>* iter = &(*this->first);
+	while (count!=0)
+	{
+		if (count == 1)
+		{
+			delete this->first;
+			count--;
+			break;
+		}
+		else
+		{
+			iter = &(*iter->link);
+			delete this->first;
+			this->first = &(*iter);
+			count--;
+		}
+	}
+}
+
+template<typename h>
+h list<h>::front() const
+{
+	return this->first->info;
+}
+
+template<typename h>
+inline h list<h>::back() const
+{
+	return this->last->info;
 }
 
 
