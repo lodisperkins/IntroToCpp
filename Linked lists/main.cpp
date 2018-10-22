@@ -24,9 +24,9 @@ int main()
 	unorderedList<int> mynewlist(mylist);
 	bool isthere = mylist.search(2);
 	mylist.print();
-	
+	mynewnewlist.print();
 	mylist.deleteNode(4);
 	mylist.print();
-	mynewnewlist.print();
+	
 	mylist.destroy();
 }
